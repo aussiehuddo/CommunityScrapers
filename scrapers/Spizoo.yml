@@ -5,6 +5,8 @@ sceneByURL:
       - creamher.com/updates/
       - drdaddypov.com/updates/
       - firstclasspov.com/updates/
+      - gothgirlfriends.com/updates/
+      - mrluckylife.com/updates/
       - mrluckypov.com/updates/
       - mrluckyraw.com/updates/
       - mrluckyvip.com/updates/
@@ -37,7 +39,7 @@ xPathScrapers:
       $video_section: (//section[@id="trailer-video" or @id="scene" or @id="scene-video"] | //div[contains(@class, "videoHolder")])
     scene:
       Title:
-        selector: //div[@class="title" or @class="row"]//h1 | //h2[contains(@class, "titular")] | //title
+        selector: //div[@class="title" or @class="row"]//h1 | //div[@class="title-trailer"]//h2 | //h2[contains(@class, "titular")] | //title
         postProcess:
           # RawAttack titles have a trailing dash and space
           - replace:
@@ -64,6 +66,7 @@ xPathScrapers:
                 creamher: Cream Her
                 drdaddypov: Dr. Daddy POV
                 firstclasspov: First Class POV
+                gothgirlfriends: Goth Girlfriends
                 mrluckypov: Mr. LuckyPOV
                 mrluckyraw: Mr. LuckyRaw
                 mrluckyvip: Mr. LuckyVIP
@@ -78,4 +81,4 @@ xPathScrapers:
               # Remove any resizing parameters for the image, we want the original
               - regex: "[?&]img(?:q|w|h)=[^&]+"
                 with:
-# Last Updated February 26, 2024
+# Last Updated June 05, 2024
