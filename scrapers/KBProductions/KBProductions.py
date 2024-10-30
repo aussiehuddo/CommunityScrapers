@@ -28,6 +28,8 @@ studio_map = {
     "cougarseason.com": "Cougar Season",
     "creampiethais.com": "Creampie Thais",
     "deepthroatsirens.com": "Deepthroat Sirens",
+    "dickhddaily.com": "DickHDDaily",
+    "diredesires.com": "Dire Desires",
     "dirtyauditions.com": "Dirty Auditions",
     "divine-dd.com": "Divine-DD",
     "facialsforever.com": "Facials Forever",
@@ -49,6 +51,7 @@ studio_map = {
     "meanfeetfetish.com": "Mean Feet Fetish",
     "members.hobybuchanon.com": "Hoby Buchanon",
     "mongerinasia.com": "Monger In Asia",
+    "nickmarxx.com": "Nick Marxx",
     "nylonperv.com": "Nylon Perv",
     "nympho.com": "Nympho",
     "poundedpetite.com": "Pounded Petite",
@@ -315,6 +318,7 @@ def to_scraped_scene_from_content(raw_scene: dict) -> ScrapedScene:
 
     scene["studio"] = get_studio(site)
 
+    # trailer seems to give the best quality image (2024/08/28)
     # trailer_screencap is what's shown on most sites
     # extra_thumbnails has the best sizes and in most cases the first one is the same as thumb
     # thumb is a good fallback if extra_thumbnails is not available
@@ -322,6 +326,7 @@ def to_scraped_scene_from_content(raw_scene: dict) -> ScrapedScene:
     cover_candidates = filter(
         None,
         (
+            dig(raw_scene, "trailer"),
             dig(raw_scene, "poster_url"),
             dig(raw_scene, "trailer_screencap"),
             dig(raw_scene, "extra_thumbnails", 0),

@@ -122,6 +122,7 @@ SITES_USING_SITENAME_AS_STUDIO_FOR_SCENE = [
     "Squirtalicious",
     "3rd Degree Films",
     "Lethalhardcore",
+    "Wicked",
 ]
 
 # a list of sites (`sitename_pretty` from the API) which should pick out the
@@ -166,6 +167,14 @@ def clean_text(details: str) -> str:
         details = re.sub(r"<\s*/?br\s*/?\s*>", "\n",
                          details)  # bs.get_text doesnt replace br's with \n
         details = bs(details, features='html.parser').get_text()
+        # Remove leading/trailing/double whitespaces
+        details = '\n'.join(
+            [
+                ' '.join([s for s in x.strip(' ').split(' ') if s != ''])
+                for x in ''.join(details).split('\n')
+            ]
+        )
+        details = details.strip()
     return details
 
 
